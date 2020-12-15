@@ -104,6 +104,32 @@ export class GuiModel {
                         }
                     ]
                 },
+                                {
+                    "id": "ActivityForm",
+                    "title": "Activity",
+                    "url": "/activity",
+                    "formFieldList": [
+                        {
+                            "id": "name",
+                            "type": "text",
+                            "name": "ActivityName",
+                            "width": 2,
+                            "required": true
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete"
+                        },
+                        {
+                            "type": "cancelButton",
+                            "name": "Cancel"
+                        },
+                        {
+                            "type": "okButton",
+                            "name": "Ok"
+                        }
+                    ]
+                },
                 {
                     "id": "AddActivityForm",
                     "title": "Activity",
@@ -186,6 +212,13 @@ export class GuiModel {
                             "color": "wisteria",
                             "page": "groupspage",
                         },
+                        {
+                            "type": "button",
+                            "name": "Activities",
+                            "icon": "far fa-calendar-alt",
+                            "color": "pumpkin",
+                            "page": "activity",
+                        },
                     ]
                 },
                 {
@@ -209,8 +242,9 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/friend",
+                            "page": "/friend/:friendKey/activity",
                             "form": {
-                                "form": "FriendForm"
+                                "form": "AddActivityForm"
                             }
                         },
                     ]
@@ -269,6 +303,69 @@ export class GuiModel {
                         }
                         }
                      ]
+                },
+                {
+                    "id": "activity",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "list",
+                            "icon": "far fa-calendar-alt",
+                            "color": "pumpkin",
+                            "search": true,
+                            "url": "/activity",
+                            "form": {
+                            "form": "ActivityForm"
+                        }
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "NewActivity",
+                            "icon": "far fa-calendar-alt",
+                            "color": "green",
+                            "form": {
+                            "form": "ActivityForm"
+                        }
+                        }
+                        ]
+                },
+                    {
+                    "id": "/friend/:friendKey/activity",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "list",
+                            "icon": "far fa-calendar-alt",
+                            "color": "pumpkin",
+                            "search": true,
+                            "url": "/friend/:friendKey/activity",
+                            "form": {
+                            "form": "AddActivityForm"
+                        }
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "NewActivity",
+                            "icon": "far fa-calendar-alt",
+                            "color": "green",
+                            "form": {
+                            "form": "AddActivityForm"
+                        }
+                        },
+                        {
+                            "type": "newButton",
+                            "name": "EditFriend",
+                            "icon": "fa-user",
+                            "color": "green",
+                            "form": {
+                            "form": "FriendForm"
+                        }
+                        }
+                        ]
                 }
 
             ]
